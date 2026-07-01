@@ -1,0 +1,66 @@
+:root {
+  --ink: #15132b; /* page background */
+  --surface: #211d3f; /* inputs */
+  --surface-2: #2c2750; /* raised for hovering */
+  --line: #393264; /* hairline borders */
+
+  --text: #edebff; /* primary text */
+  --muted: #9a95c9; /* secondary text */
+
+  --accent: #ff7a59;
+  --accent-hi: #ff9377;
+  --violet: #9b8cff; /* secondary accent for links/code */
+
+  --ok: #6ee7a8;
+  --danger: #ff6b8a;
+
+  --radius: 14px;
+  --radius-sm: 9px;
+  --ring: 0 0 0 3px rgba(255, 122, 89, 0.35);
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(1100px 600px at 50% -10%, #241f47 0%, transparent 60%),
+    var(--ink);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+a {
+  color: var(--violet);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

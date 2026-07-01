@@ -1,0 +1,272 @@
+.page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+.masthead {
+  margin-bottom: 56px;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+
+.brand-dot {
+  color: var(--accent);
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(30px, 6vw, 46px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 28px;
+}
+
+.headline .accent {
+  color: var(--accent);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field:focus-within {
+  border-color: var(--accent);
+  box-shadow: var(--ring);
+}
+
+.url-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  padding: 12px 14px;
+}
+
+.url-input::placeholder {
+  color: var(--muted);
+}
+
+.snip-btn {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: #2a0f06;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0 22px;
+  font-size: 15px;
+  transition: background 0.15s, transform 0.05s;
+}
+
+.snip-btn:hover:not(:disabled) {
+  background: var(--accent-hi);
+}
+
+.snip-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.snip-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.link-btn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 2px 0;
+}
+
+.link-btn:hover {
+  color: var(--violet);
+}
+
+.alias-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 4px 12px;
+}
+
+.alias-prefix {
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+.alias-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.alias-input::placeholder {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 14px;
+  margin: 4px 2px 0;
+}
+
+.results {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.link-row--fresh {
+  animation: snip-in 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes snip-in {
+  0% {
+    opacity: 0;
+    transform: scaleX(1.06) translateY(-6px);
+    border-color: var(--accent);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1) translateY(0);
+  }
+}
+
+.link-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.short-url {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.short-url:hover {
+  text-decoration: underline;
+}
+
+.long-url {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.link-actions {
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.chip-btn {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.chip-btn:hover:not(:disabled) {
+  color: var(--text);
+  background: var(--line);
+}
+
+.chip-btn--primary {
+  color: var(--text);
+}
+
+.chip-btn:disabled {
+  opacity: 0.6;
+}
+
+.footer {
+  margin-top: 72px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* mobile */
+@media (max-width: 520px) {
+  .field {
+    flex-direction: column;
+  }
+  .snip-btn {
+    padding: 13px;
+  }
+  .link-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .link-actions {
+    justify-content: flex-end;
+  }
+}
