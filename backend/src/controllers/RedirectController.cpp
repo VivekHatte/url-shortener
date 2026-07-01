@@ -10,10 +10,10 @@ Task<> RedirectController::redirect(HttpRequestPtr req, std::function<void(const
 		auto rows = co_await db->execSqlCoro("SELECT long_url FROM urls WHERE code = $1", code);
 
 		if(rows.empty()) {
-			auto resp{HttpResponse::newHttpResponse();
+			auto resp{HttpResponse::newHttpResponse()};
 			resp->setStatusCode(k404NotFound);
 			resp->setBody("Short link not found");
-			calback(resp);
+			callback(resp);
 			co_return;
 		}
 

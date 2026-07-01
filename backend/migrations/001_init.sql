@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS urls (
 	code		VARCHAR(32) UNIQUE,
 	long_url	TEXT NOT NULL,
 	clicks		BIGINT NOT NULL DEFAULT 0,
-	created_at	TIMESTAMPZ NOT NULL DEFAULT now()
+	created_at	TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 CREATE INDEX IF NOT EXISTS idx_urls_code ON urls(code);

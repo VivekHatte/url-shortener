@@ -10,8 +10,7 @@ public:
 
 
 	drogon::Task<> shorten(drogon::HttpRequestPtr req, 
-			std::function<void(const drogon::HttpResponsePtr &)> callback,
-			std::string code);
+			std::function<void(const drogon::HttpResponsePtr &)> callback);
 
 	drogon::Task<> stats(drogon::HttpRequestPtr req,
 		      std::function<void(const drogon::HttpResponsePtr &)> callback,

@@ -6,7 +6,7 @@ using namespace drogon;
 
 namespace {
 
-std::string baseUrlFromRequest(const HttpREquestPtr & req){
+std::string baseUrlFromRequest(const HttpRequestPtr & req){
 	std::string scheme = req->getHeader("x-forwarded-proto");
 	if(scheme.empty()) {
 		scheme = "http";
@@ -81,7 +81,7 @@ Task<> ShortenController::shorten(HttpRequestPtr req, std::function<void(const H
 		resp->setStatusCode(k201Created);
 		callback(resp);
 	} catch(const orm::DrogonDbException &e) {
-		LOG_ERROR << "shorten failed" " << e.base().what();
+		LOG_ERROR << "shorten failed" << e.base().what();
 		callback(jsonError(k500InternalServerError, "database error"));
 	}
 	co_return;
@@ -103,7 +103,7 @@ Task<> ShortenController::stats(HttpRequestPtr req, std::function<void(const Htt
 		body["clicks"] = row["clicks"].as<int64_t>();
 		body["created_at"] = row["created_at"].as<std::string>();
 		callback(HttpResponse::newHttpJsonResponse(body));
-	} catch (cost orm::DrogonDbException &e) {
+	} catch (const orm::DrogonDbException &e) {
 		LOG_ERROR << "stats failed: " << e.base().what();
 		callback(jsonError(k500InternalServerError,  "Database Error"));
 	}

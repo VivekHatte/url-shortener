@@ -11,11 +11,11 @@ Task<> HealthController::health(HttpRequestPtr req, std::function<void(const Htt
 		body["status"] = "ok";
 		body["database"] = "up";
 		callback(HttpResponse::newHttpJsonResponse(body));
-	} catch (cosnt orm::DrogonDbException &e) {
+	} catch (const orm::DrogonDbException &e) {
 		LOG_ERROR << "Health cehck db failure: " << e.base().what();
 		body["status"] = "degraded";
 		body["database"] = "down";
-		auto resp = HttpResponse:newHttpJsonResponse(body);
+		auto resp = HttpResponse::newHttpJsonResponse(body);
 		resp->setStatusCode(k503ServiceUnavailable);
 		callback(resp);
 	}
